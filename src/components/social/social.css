@@ -1,0 +1,10 @@
+.social {
+    transition: transform 0.4s;
+}
+.social svg:hover {
+    transform: scale(1.06);
+}
+
+.social {
+    margin: 4px;
+}
