@@ -1,7 +1,7 @@
 import Social from '../../components/social'
 import {FaInstagram, FaGithub, FaTwitter, FaLinkedin} from 'react-icons/fa'
-import { Container, Movie, MovieList, Title, P, Footer} from './home.js';
-
+import { Container, Movie, MovieList, Title, P, Footer, Header} from './home.js';
+import Logo from '../../components/logo'
 import { useEffect, useState } from 'react'
 import {
   getDocs,
@@ -72,13 +72,18 @@ export default function Home() {
     loadSocialLinks();
   }, [])
 
-  
+ 
 
 
   return (
     <Container>
 
-        <Title>BraFlix 🇧🇷</Title>
+
+        {/* <Title>BraFlix 🇧🇷</Title> */}
+        <Header><Logo/></Header>
+        
+        
+        <h3 style={{textAlign: "center", marginBottom: 20, fontWeight: "bold"}}>Últimos adicionados</h3>
 
 
         <main className='links'>
@@ -96,7 +101,7 @@ export default function Home() {
       })}
       </MovieList>
         
-       
+      <P>Feito por Ruan Freire 🇧🇷</P>
 
         {links.length !== 0 && Object.keys(socialLinks).length > 0 && (
           <Footer>
@@ -114,7 +119,8 @@ export default function Home() {
           </Social>
         </Footer>  
         )}
-         
+                 
+
         </main>
       
     </Container>

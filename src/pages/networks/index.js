@@ -50,6 +50,7 @@ export default function Networks() {
             setInstagram(snapshot.data().instagram)
             setLinkedin(snapshot.data().linkedin)
             setTwitter(snapshot.data().twitter)
+
             toast.success('Links carregados com sucesso.')
 
           }

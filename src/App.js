@@ -29,7 +29,8 @@ const router = createBrowserRouter([
   {
     path: "/admin/social",
     element:<Privete> <Networks/> </Privete> 
-  }
+  },
+ 
 ])
 
 export {router};

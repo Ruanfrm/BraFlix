@@ -17,6 +17,7 @@ export const P = styled.p`
         text-align: center;
         font-size: 1.3rem;
         margin: 1rem 0;
+        margin-top: auto;
 `
 export const Rodape = styled.footer`
         text-align: center;
@@ -65,7 +66,14 @@ export const Footer = styled.footer`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
      
-     
+`
+export const Header = styled.header`
+
+justify-content: center;
+align-items: center;
+display: flex;
+
 `

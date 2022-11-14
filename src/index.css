@@ -6,9 +6,17 @@ box-sizing: border-box;
 
 body {
   font-family: sans-serif;
-  background: linear-gradient(#232630, #050506);
+  /* background: linear-gradient(#232630, #050506); */
+  background-image: url(/public/flag-bra.jpg);
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: 100%;
   min-height: 100vh;
   color: white;
+  font-family: 'Roboto', sans-serif;
+
 }
 
 button {
@@ -17,4 +25,7 @@ button {
 
 a {
   text-decoration: none;
+}
+.fundo {
+  
 }
