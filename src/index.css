@@ -7,7 +7,7 @@ box-sizing: border-box;
 body {
   font-family: sans-serif;
   /* background: linear-gradient(#232630, #050506); */
-  background-image: url(/public/flag-bra.jpg);
+  background-image: url(https://i.pinimg.com/736x/6e/78/d8/6e78d8a49460c11219b359114d38adda.jpg);
 
   background-repeat: no-repeat;
   background-position: center;
@@ -26,6 +26,15 @@ button {
 a {
   text-decoration: none;
 }
-.fundo {
-  
+ 
+@media(max-width: 600px) {
+    body{
+      background-image: url(https://i.pinimg.com/736x/6e/78/d8/6e78d8a49460c11219b359114d38adda.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      background-size: 200%;
+    }
 }
+  
+
