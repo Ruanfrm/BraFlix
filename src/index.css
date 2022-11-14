@@ -27,13 +27,13 @@ a {
   text-decoration: none;
 }
  
-@media(max-width: 600px) {
+@media(max-width: 575px) {
     body{
       background-image: url(https://i.pinimg.com/736x/6e/78/d8/6e78d8a49460c11219b359114d38adda.jpg);
       background-repeat: no-repeat;
       background-position: center;
       background-attachment: fixed;
-      background-size: 200%;
+      background-size: cover;
     }
 }
   
