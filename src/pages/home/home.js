@@ -15,9 +15,8 @@ export const MovieList = styled.ul`
 `
 export const P = styled.p`
         text-align: center;
-        font-size: 1.3rem;
-        margin: 1rem 0;
-        margin-top: auto;
+        font-size: 18px;
+        margin-top: 2rem;
 `
 export const Rodape = styled.footer`
         text-align: center;
@@ -76,4 +75,46 @@ justify-content: center;
 align-items: center;
 display: flex;
 
+`
+export const Navbar =  styled.div`
+    font-weight: bold;
+    justify-content: center;
+    display: flex;
+    padding: 2rem;
+    color: white;
+
+    ul{
+        font-size: 20px ;
+    }
+
+    li{
+        list-style: none;
+        float: left;
+        margin-right: 8px;
+        
+    }
+
+    .hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: white;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
 `

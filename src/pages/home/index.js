@@ -1,6 +1,6 @@
 import Social from '../../components/social'
 import {FaInstagram, FaGithub, FaTwitter, FaLinkedin} from 'react-icons/fa'
-import { Container, Movie, MovieList, Title, P, Footer, Header} from './home.js';
+import { Container, Movie, MovieList, Title, P, Footer, Header, Navbar} from './home.js';
 import Logo from '../../components/logo'
 import { useEffect, useState } from 'react'
 import {
@@ -12,6 +12,7 @@ import {
   doc
 } from 'firebase/firestore'
 import {db} from '../../services/conectionfirebase'
+
 
 
 export default function Home() {
@@ -81,17 +82,32 @@ export default function Home() {
 
         {/* <Title>BraFlix 🇧🇷</Title> */}
         <Header><Logo/></Header>
+
+     
+
+         {/* nav-bar */}
+            <Navbar  className='nav-bar-Navbar'>
+            <ul>
+                    <li className='hover-underline-animation' ><a href="#">Filmes</a></li> 
+                    <li className='hover-underline-animation' ><a href="#">Séries</a></li>
+                    <li className='hover-underline-animation' ><a href="/contact">Contato</a></li>
+            </ul>
+            </Navbar>
+            {/* End-nav-bar */}
+
         
         
         <h3 style={{textAlign: "center", marginBottom: 20, fontWeight: "bold"}}>Últimos adicionados</h3>
 
 
-        <main className='links'>
+
+        <main className='links' >
 
         <MovieList>
       {links.map(item => {
         return (
-          <Movie key={item.id}>
+          
+          <Movie key={item.id}  >
             <a href={item.movie} target="_blank">
               <img src={item.image}/>
               </a>
@@ -122,7 +138,7 @@ export default function Home() {
                  
 
         </main>
-      
+        
     </Container>
   )
 }

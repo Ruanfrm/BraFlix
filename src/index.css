@@ -27,7 +27,7 @@ a {
   text-decoration: none;
 }
  
-@media(max-width: 575px) {
+@media(max-width: 600px) {
     body{
       background-image: url(https://i.pinimg.com/736x/6e/78/d8/6e78d8a49460c11219b359114d38adda.jpg);
       background-repeat: no-repeat;
@@ -36,5 +36,6 @@ a {
       background-size: cover;
     }
 }
-  
+
+
 

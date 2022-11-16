@@ -14,7 +14,8 @@ import {
   query,
   orderBy,
   doc,
-  deleteDoc
+  deleteDoc,
+  
 
 } from 'firebase/firestore'
 import { toast } from 'react-toastify'
@@ -73,7 +74,7 @@ async function handleRegister(e){
   })
   .catch((error) => {
     console.log('ERRO AO REGISTRAR' + error)
-    toast.error("Ops erro ao salvar link" + error)
+    toast.error("Ops erro ao salvar link")
   })
 }
 

@@ -5,6 +5,7 @@ import Login from "./pages/login"
 import Admin from "./pages/admin"
 import Error from "./pages/error"
 import Networks from "./pages/networks"
+import Contact from "./pages/contact"
 
 import Privete from "./routes/privete"
 
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
     path: "/admin/social",
     element:<Privete> <Networks/> </Privete> 
   },
+  {
+  path: "/contact",
+  element: <Contact/>
+}
  
 ])
 
