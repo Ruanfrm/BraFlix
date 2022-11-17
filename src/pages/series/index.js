@@ -1,6 +1,6 @@
 import Social from '../../components/social'
 import {FaInstagram, FaGithub, FaTwitter, FaLinkedin} from 'react-icons/fa'
-import { Container, Movie, MovieList, Title, P, Footer, Header, Navbar} from './home.js';
+import { Container, Movie, MovieList, Title, P, Footer, Header, Navbar} from "./serie.js";
 import Logo from '../../components/logo'
 import { useEffect, useState } from 'react'
 import {
@@ -14,69 +14,69 @@ import {
 import {db} from '../../services/conectionfirebase'
 
 
+export default function Serie() {
 
-export default function Home() {
+    const [links, setLinks] = useState([])
+    const [socialLinks, setSocialLinks] = useState({})
+  
+  
+    useEffect(() => {
+  
+      function loadLinks(){
+        
+        const linksRef = collection(db, "series")
+        const queryRef = query(linksRef, orderBy("created", "desc"))
+  
+        getDocs(queryRef)
+        .then( (snapshot) => {
+          let lista = [];
+  
+          snapshot.forEach((doc) => {
+            lista.push({
+              id: doc.id,
+              name: doc.data().name,
+              movie: doc.data().movie,
+              image: doc.data().image
+            })
+  
+  
+            setLinks(lista)
+  
+          } )
+        })
+  
+  
+      }
+  
+      loadLinks();
+  
+    }, [])
+  
+    useEffect(() => {
+      function loadSocialLinks(){
+        const docRef = doc(db, "social", "link")
+  
+        getDoc(docRef)
+        .then((snapshot) => { 
+          if (snapshot.data() != undefined){
+            setSocialLinks({
+              github: snapshot.data().github,
+              instagram: snapshot.data().instagram,
+              linkedin: snapshot.data().linkedin,
+              twitter: snapshot.data().twitter
+            })
+          }
+        })
+      }
+      loadSocialLinks();
+    }, [])
+  
+   
 
-
-  const [links, setLinks] = useState([])
-  const [socialLinks, setSocialLinks] = useState({})
-
-
-  useEffect(() => {
-
-    function loadLinks(){
-      
-      const linksRef = collection(db, "links")
-      const queryRef = query(linksRef, orderBy("created", "desc"))
-
-      getDocs(queryRef)
-      .then( (snapshot) => {
-        let lista = [];
-
-        snapshot.forEach((doc) => {
-          lista.push({
-            id: doc.id,
-            name: doc.data().name,
-            movie: doc.data().movie,
-            image: doc.data().image
-          })
-
-
-          setLinks(lista)
-
-        } )
-      })
-
-
-    }
-
-    loadLinks();
-
-  }, [])
-
-  useEffect(() => {
-    function loadSocialLinks(){
-      const docRef = doc(db, "social", "link")
-
-      getDoc(docRef)
-      .then((snapshot) => { 
-        if (snapshot.data() != undefined){
-          setSocialLinks({
-            github: snapshot.data().github,
-            instagram: snapshot.data().instagram,
-            linkedin: snapshot.data().linkedin,
-            twitter: snapshot.data().twitter
-          })
-        }
-      })
-    }
-    loadSocialLinks();
-  }, [])
-
- 
 
 
   return (
+
     <Container>
 
 
@@ -88,8 +88,8 @@ export default function Home() {
          {/* nav-bar */}
             <Navbar  className='nav-bar-Navbar'>
             <ul>
-                    <li className='hover-underline-animation' ><a href="/movie">Filmes</a></li> 
-                    <li className='hover-underline-animation' ><a href="/serie">Séries</a></li>
+                    <li className='hover-underline-animation' ><a href="/">Home</a></li> 
+                    <li className='hover-underline-animation' ><a href="/movie">Filmes</a></li>
                     <li className='hover-underline-animation' ><a href="/contact">Contato</a></li>
             </ul>
             </Navbar>
@@ -140,5 +140,6 @@ export default function Home() {
         </main>
         
     </Container>
+
   )
 }

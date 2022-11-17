@@ -6,6 +6,10 @@ import Admin from "./pages/admin"
 import Error from "./pages/error"
 import Networks from "./pages/networks"
 import Contact from "./pages/contact"
+import Filmes from "./pages/filmes"
+import AdminMovie from "./pages/adminMovie"
+import Serie from "./pages/series"
+import AdminSerie from "./pages/adminSerie"
 
 import Privete from "./routes/privete"
 
@@ -34,8 +38,23 @@ const router = createBrowserRouter([
   {
   path: "/contact",
   element: <Contact/>
-}
- 
+},
+{
+  path: "/movie",
+  element: <Filmes/>
+},
+{
+  path: "/movie/admin",
+  element:<Privete><AdminMovie/></Privete> 
+},
+{
+  path: "/serie",
+  element:<Serie/> 
+},
+{
+  path: "/serie/admin",
+  element:<Privete><AdminSerie/></Privete> 
+},
 ])
 
 export {router};

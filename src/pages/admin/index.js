@@ -59,7 +59,7 @@ async function handleRegister(e){
     return;
   }
 
-  addDoc(collection(db, "links"), {
+  addDoc(collection(db, ""), {
     name: nameInput,
     movie: movie,
     image: image,
