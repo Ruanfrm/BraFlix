@@ -10,6 +10,7 @@ import Filmes from "./pages/filmes"
 import AdminMovie from "./pages/adminMovie"
 import Serie from "./pages/series"
 import AdminSerie from "./pages/adminSerie"
+import Details from "./pages/details"
 
 import Privete from "./routes/privete"
 
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
   path: "/serie/admin",
   element:<Privete><AdminSerie/></Privete> 
 },
+{
+  path: "/details/:id",
+  element: <Details/>
+}
 ])
 
 export {router};

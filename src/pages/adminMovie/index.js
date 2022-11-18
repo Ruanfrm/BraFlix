@@ -92,7 +92,7 @@ export default function AdminMovie() {
           <Logo/>
   
           <form className='form' onSubmit={handleRegister}>
-              <label>Nome do filme/serie</label>
+              <label>Nome do filme</label>
               <Input
               placeholder="Nome do Link"
               value={nameInput}

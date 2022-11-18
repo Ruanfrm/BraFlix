@@ -10,16 +10,37 @@ import {
   query,
   getDoc,
   doc
+
 } from 'firebase/firestore'
 import {db} from '../../services/conectionfirebase'
+import { Link } from 'react-router-dom';
 
 
 
 export default function Home() {
 
+  
 
   const [links, setLinks] = useState([])
   const [socialLinks, setSocialLinks] = useState({})
+
+
+  const imagePath = 'https://image.tmdb.org/t/p/w500'
+
+  const [movies, setMovies] = useState([])
+  const ApiKey = "2a587473bae94fad1cb5b8367a709b0c"
+
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${ApiKey}&language=pt-BR`)
+    .then(response => response.json())
+    .then(data => {
+      setMovies(data.results)
+    })
+    console.log(setMovies)
+  }, [])
+
+
+
 
 
   useEffect(() => {
@@ -48,12 +69,15 @@ export default function Home() {
       })
 
 
+
+
     }
 
     loadLinks();
 
   }, [])
 
+ 
   useEffect(() => {
     function loadSocialLinks(){
       const docRef = doc(db, "social", "link")
@@ -95,9 +119,26 @@ export default function Home() {
             </Navbar>
             {/* End-nav-bar */}
 
+                <h3 style={{textAlign: "center", marginBottom: 20, fontWeight: "bold", marginTop: 50}}>Filmes populares</h3>
+
+
+
+            <MovieList>
+      {movies.map(movie => {
+        return (
+          <Movie key={movie.id}>
+            <Link to={`/details/${movie.id}`}>
+              <img src={`${imagePath}${movie.poster_path}`} alt={movie.title}/>
+            </Link>
+            <span>{movie.title}</span>
+          </Movie>
+        )
+      })}
+      </MovieList>
+
+
         
-        
-        <h3 style={{textAlign: "center", marginBottom: 20, fontWeight: "bold"}}>Últimos adicionados</h3>
+        <h3 style={{textAlign: "center", marginBottom: 20, fontWeight: "bold", marginTop: 50}}>Últimos adicionados</h3>
 
 
 
@@ -116,8 +157,10 @@ export default function Home() {
         )
       })}
       </MovieList>
+
+     
         
-      <P>Feito por Ruan Freire 🇧🇷</P>
+      <P>Feito por Haisenberg 🇧🇷</P>
 
         {links.length !== 0 && Object.keys(socialLinks).length > 0 && (
           <Footer>

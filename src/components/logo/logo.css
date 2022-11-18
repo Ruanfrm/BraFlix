@@ -18,3 +18,9 @@ img {
     width: 3%;
     border-radius: 6px;
 }
+
+@media  (max-width: 600px){
+    img {
+        width: 49px;
+    }
+}

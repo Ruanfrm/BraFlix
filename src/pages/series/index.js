@@ -117,7 +117,7 @@ export default function Serie() {
       })}
       </MovieList>
         
-      <P>Feito por Ruan Freire 🇧🇷</P>
+      <P>Feito por Haisenberg🇧🇷</P>
 
         {links.length !== 0 && Object.keys(socialLinks).length > 0 && (
           <Footer>
