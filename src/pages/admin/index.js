@@ -51,32 +51,32 @@ export default function Admin() {
 
   }, [])
 
-async function handleRegister(e){
-  e.preventDefault();
-
-  if(nameInput === '' ||  movie === '' || image === '' ){
-    toast.warn('Preencha todos os campos!!! ')
-    return;
-  }
-
-  addDoc(collection(db, ""), {
-    name: nameInput,
-    movie: movie,
-    image: image,
+  async function handleRegister(e){
+    e.preventDefault();
   
-    created: new Date(),
-  })
-  .then(() => {
-    setNameInput("")
-    setMovie("")
-    setImage("")
-    toast.success("Link cadastrado com sucesso ")
-  })
-  .catch((error) => {
-    console.log('ERRO AO REGISTRAR' + error)
-    toast.error("Ops erro ao salvar link")
-  })
-}
+    if(nameInput === '' ||  movie === '' || image === '' ){
+      toast.warn('Preencha todos os campos!!! ')
+      return;
+    }
+  
+    addDoc(collection(db, "links"), {
+      name: nameInput,
+      movie: movie,
+      image: image,
+    
+      created: new Date(),
+    })
+    .then(() => {
+      setNameInput("")
+      setMovie("")
+      setImage("")
+      toast.success("Link cadastrado com sucesso ")
+    })
+    .catch((error) => {
+      console.log('ERRO AO REGISTRAR' + error)
+      toast.error("Ops erro ao salvar link")
+    })
+  }
 
    async function handleDeleteLink(id){
     const docRef = doc(db, "links", id)
