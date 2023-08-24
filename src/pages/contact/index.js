@@ -85,7 +85,7 @@ export default function Contact() {
       </h1>
 
         <Center>
-            <form action="https://formsubmit.co/06dcf652724da30e35f25d774e7177b0" method="POST">
+            <form action="https://formsubmit.co/ruanfreire@protonmail.com" method="POST">
             <input type="hidden" name="_next" value="https://braflix.vercel.app/contact"/>
             <input type="hidden" name="_subject" value="Novo envio de BraFlix!"/>
             <input type="text" name="_honey" style={{display: "none"}}/>
